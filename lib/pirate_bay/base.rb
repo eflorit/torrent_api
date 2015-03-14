@@ -49,7 +49,7 @@ module PirateBay
     def get_quality
       execute
       results = @results.map do |result|
-        url = "http://www.thepiratebay.se/torrent/#{result.id}/"
+        url = "https://www.thepiratebay.se/torrent/#{result.id}/"
         html = open(url).read
         p = PirateBay::Details.new html, :init
         puts "Fetching results"
@@ -74,7 +74,7 @@ module PirateBay
     
 
     def fetch_search_results
-      url = "http://thepiratebay.se/search/#{search_string}/#{page}/7/#{category_id}" # highest seeded first
+      url = "https://thepiratebay.se/search/#{search_string}/#{page}/7/#{category_id}" # highest seeded first
       open(url, { "User-Agent" => "libcurl-agent/1.0" }).read
     end
 
